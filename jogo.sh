@@ -7,6 +7,7 @@ then
 fi
 
 mkdir -p jogos
+rm -f jogos/pos[0-9][0-9]
 
 ulimit -t 2
 jog1=$1
@@ -39,4 +40,3 @@ do
 	i=$next
 done
 
-rm -f jogos/pos[0-9][0-9]
