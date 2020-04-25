@@ -11,5 +11,5 @@ final.html: final.md
 	file="final";data=`date`; pandoc -s "$$file.md" -M date="Last Update: $$data" -o "$$file.html"
 	scp final.html rcm@shiva.di.uminho.pt:~/public_html/aulas/1920/lab
 
-zip: $(wildcard *.h) $(wildcard *.c) $(TABULEIROS) Makefile torneio.sh final.md
+zip: $(wildcard *.h) $(wildcard *.c) $(wildcard *.sh) $(TABULEIROS) Makefile final.md
 	zip -9 torneio.zip $^

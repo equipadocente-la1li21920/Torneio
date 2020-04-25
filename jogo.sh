@@ -9,18 +9,18 @@ fi
 ulimit -t 2
 jog1=$1
 jog2=$2
+dir=jogos
 
 mov=1
 atual=inicial
 progs=($jog1 $jog2)
 i=0
 
-rm -f pos[0-9][0-9]
 
 while ! ./ended $atual
 do
 	prog=${progs[$i]}
-	prox=$(printf 'pos%02d' $mov)
+	prox=$(printf 'jogos/pos%02d' $mov)
 	next=$(( ($i + 1) % 2 ))
 	./$prog $atual $prox >& /dev/null
 	echo
@@ -36,3 +36,5 @@ do
 	mov=$(expr $mov + 1)
 	i=$next
 done
+
+rm -f jogos/pos[0-9][0-9]
