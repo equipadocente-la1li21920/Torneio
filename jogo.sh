@@ -6,6 +6,8 @@ then
 	exit
 fi
 
+mkdir -p jogos
+
 ulimit -t 2
 jog1=$1
 jog2=$2
