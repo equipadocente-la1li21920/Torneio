@@ -1,4 +1,10 @@
-rm jogo_*.log
+rm -f jogo_*.log
+
+if [ ! -d concorrentes ]
+then
+	echo "Erro: diretoria de concorrentes não existe!"
+	exit
+fi
 
 for c1 in concorrentes/*
 do

@@ -1,6 +1,4 @@
-declare -A stat
-
-rm vencedores
+rm -f vencedores
 
 for jogo in jogo_*_*.log
 do
