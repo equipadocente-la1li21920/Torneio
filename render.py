@@ -32,30 +32,37 @@ def dois(L, C):
 
 subs = {'.' : vazia, '*' : branca, '#' : preta, '1' : um, '2' : dois}
 
-def render(num, filename, fst, snd):
+def logo(name, X, Y, size, img, opacity, fout):
+    print(f'<text x="{X + 10}" y="{Y}" fill="black" stroke="black" font-size="20px">{name}</text>', file = fout)
+    print(f'<image xlink:href="{img}" x="{X + 30}" y="{Y + 20}" height="{size}" width="{size}" />', file = fout)
+    print(f'<rect x="{X + 30}" y="{Y + 20}" width="{size}" height="{size}" fill="white" fill-opacity="{opacity}" />', file = fout)
+
+
+def render(num, filename, player1, fst, player2, snd):
     with open(filename + ".svg", "w") as fout:
         with open(filename) as f:
             op1 = 0 if num % 2 == 0 else 0.5
             op2 = 0 if num % 2 == 1 else 0.5
-            print(num, op1, op2)
-            print(f'<svg height="{8 * tam}" width="{18 * tam}">', file = fout)
+            print(f'<svg  height="{10 * tam}" width="{18 * tam}">', file = fout)
+            print(f'<rect height="{10 * tam}" width="{18 * tam}" fill="white" />', file = fout)
 
-            print(f'<image xlink:href="{fst}" x="0" y="{3 * tam}" height="{4 * tam}" width="{4 * tam}" />', file = fout)
-            print(f'<rect x="0" y="{3 * tam}" width="{4 * tam}" height="{4 * tam}" fill="white" fill-opacity="{op1}" />', file = fout)
-
-            print(f'<image xlink:href="{snd}" x="{13 * tam}" y="{3 * tam}" height="{4 * tam}" width="{4 * tam}" />', file = fout)
-            print(f'<rect x="{13 * tam}" y="{3 * tam}" width="{4 * tam}" height="{4 * tam}" fill="white" fill-opacity="{op2}" />', file = fout)
+            logo(player1,        0, 2 * tam, 2 * tam, fst, op1, fout)
+            logo(player2, 13 * tam, 2 * tam, 2 * tam, snd, op2, fout)
 
             for L, line in enumerate(f.readlines()[:8]):
                 for C, val in enumerate(line.strip()):
-                    print(subs[val](L, 5 + C), file = fout)
+                    print(subs[val](L + 1, 5 + C), file = fout)
             print('</svg>', file = fout)
 
 
-fst = DataURI.from_file(sys.argv[1])
-snd = DataURI.from_file(sys.argv[2])
-for num, filename in enumerate(sorted(glob.glob('pos[0-9][0-9]'))):
-    render(num, filename, fst, snd)
+if len(sys.argv) != 5:
+    print(f'Usage: {sys.argv[0]} name_player1 name_player2 logo_player1 logo_player2')
+else:
+    pl1 = sys.argv[1]
+    pl2 = sys.argv[2]
+    fst = DataURI.from_file(sys.argv[3])
+    snd = DataURI.from_file(sys.argv[4])
+    for num, filename in enumerate(sorted(glob.glob('pos[0-9][0-9]'))):
+        render(num, filename, pl1, fst, pl2, snd)
 
-os.system("rm jogo.mp4; ffmpeg -r 1 -i pos%02d.svg -pix_fmt yuv420p jogo.mp4")
-
+    os.system("rm jogo.mp4; ffmpeg -r 1 -i pos%02d.svg -pix_fmt yuv420p jogo.mp4")

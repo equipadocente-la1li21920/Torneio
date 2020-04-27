@@ -46,7 +46,7 @@ Pretende-se que o código esteja bem escrito e legível. Isto implica:
 - Estruturar o código em módulos estanques
 - Não incluir código
 - Não utilizar variáveis globais
-- Haver coerência entre as canadas
+- Haver coerência entre as camadas
 
 
 ## Deteção dos fins de jogo
@@ -83,7 +83,9 @@ Assim, se o programa for invocado da seguinte forma:
 Então ele deverá ler o estado do ficheiro **jog01**, jogar e gravar o estado no ficheiro **jog02**.
 
 ## Entrega
-__Só participa no Campeonato quem submeter o arquivo zip com o nome correto até __3 de Maio__ no Blackboard.__
+__Só participa no Campeonato quem submeter o arquivo zip com o nome correto até 3 de Maio no Blackboard.__
+
+Quem quiser ter um __logotipo personalizado__ deve colocar no arquivo zip um ficheiro com o nome __`logo.png`__ de __40x40__ pixeis.
 
 
 Para além de estar no _Github_ na pasta _bot_, o código do bot é entregue também no Blackboard num link próprio para esse efeito para arquivo e para que nós saibamos quem pretende ir a jogo. Só um dos elementos do grupo deve submeter o arquivo.
@@ -92,6 +94,7 @@ A entrega do bot deverá seguir exatamente as mesmas regras das da entrega do pr
 	<nome da UC>PL<número do turno prático>G<numéro do grupo com dois algarismos>.zip
 
 Esse ficheiro deve simplesmente conter na raiz as fontes necessárias para compilar o bot.
+
 
 Todo o código para compilar o código do bot deve estar na raiz do arquivo e deve poder ser compilado fazendo simplesmente:
 
