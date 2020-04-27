@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import glob, sys, os
 from datauri import DataURI
 
@@ -62,7 +64,5 @@ else:
     pl2 = sys.argv[2]
     fst = DataURI.from_file(sys.argv[3])
     snd = DataURI.from_file(sys.argv[4])
-    for num, filename in enumerate(sorted(glob.glob('pos[0-9][0-9]'))):
+    for num, filename in enumerate(sorted(glob.glob('jogos/pos[0-9][0-9]'))):
         render(num, filename, pl1, fst, pl2, snd)
-
-    os.system("rm jogo.mp4; ffmpeg -r 1 -i pos%02d.svg -pix_fmt yuv420p jogo.mp4")

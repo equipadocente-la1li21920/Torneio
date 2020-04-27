@@ -39,4 +39,3 @@ do
 	mov=$(expr $mov + 1)
 	i=$next
 done
-

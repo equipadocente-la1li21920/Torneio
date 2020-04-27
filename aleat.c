@@ -1,3 +1,6 @@
+/*
+ * Este jogador aleatório é super básico! Ele nem verifica se o jogo acabou
+ */
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
