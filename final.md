@@ -59,7 +59,7 @@ Pretende-se que o seu programa compile __sem qualquer warning__  ao compilar uti
 
 A título de exemplo, se todo o vosso código estiver numa única pasta e essa pasta não contiver outros ficheiros C, o seguinte comando
 
-	gcc -std=gnu11 -Wall -Wextra -pedantic-errors -O *.c
+	gcc -std=gnu11 -Wall -Wextra -pedantic-errors -O *.c -lm
 
 deveria compilar o vosso programa e gerar o executável __a.out__ sem mostrar _warnings_. A avaliação deste critério é binária:
 
@@ -98,7 +98,7 @@ Esse ficheiro deve simplesmente conter na raiz as fontes necessárias para compi
 
 Todo o código para compilar o código do bot deve estar na raiz do arquivo e deve poder ser compilado fazendo simplesmente:
 
-	gcc -std=gnu11 -Wall -Wextra -pedantic-errors -O *.c
+	gcc -std=gnu11 -Wall -Wextra -pedantic-errors -O *.c -lm
 
 ## Avaliação
 A competição será através de um campeonato. Este proceder-se-á da seguinte forma:

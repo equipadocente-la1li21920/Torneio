@@ -8,7 +8,11 @@
 #include <sys/time.h>
 
 #include "common.h"
+#include "aleat.h"
 
+/**
+ * Escolhe a casa
+ * */
 COORDENADA escolher(CASA tab[8][8], char ultima[3]) {
 	int lastL = '8' - ultima[1];
 	int lastC = ultima[0] - 'a';
