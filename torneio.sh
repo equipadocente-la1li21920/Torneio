@@ -1,3 +1,5 @@
+#!/bin/bash
+
 rm -f jogo_*.log
 rm -f jogo_*.mp4
 

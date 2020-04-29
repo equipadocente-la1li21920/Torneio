@@ -1,3 +1,5 @@
+#!/bin/bash
+
 rm -f vencedores
 
 for jogo in jogo_*_*.log
