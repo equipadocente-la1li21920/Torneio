@@ -1,5 +1,7 @@
 #!/bin/bash
 
+criar_filmes=NO
+
 rm -f jogo_*.log
 rm -f jogo_*.mp4
 
@@ -34,9 +36,12 @@ do
 			cp inicial jogos/pos00
 			logo1=$(get_logo $C1)
 			logo2=$(get_logo $C2)
-			./render.py $C1 $C2 $logo1 $logo2
-			ffmpeg -r 1 -i jogos/pos%02d.svg -pix_fmt yuv420p jogo.mp4 &> /dev/null
-			mv jogo.mp4 jogo_${C1}_${C2}.mp4
+			if [[ criar_filmes == "YES" ]]
+			then
+				./render.py $C1 $C2 $logo1 $logo2
+				ffmpeg -r 1 -i jogos/pos%02d.svg -pix_fmt yuv420p jogo.mp4 &> /dev/null
+				mv jogo.mp4 jogo_${C1}_${C2}.mp4
+			fi
 		fi
 	done
 done
