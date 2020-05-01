@@ -6,6 +6,7 @@ Problemas comuns:
 
 * Há pessoas que estão com problemas a ler o tabuleiro inicial, vejam se é o vosso caso
 * Se ao correr o jogo aparecer um __killed__, isso quer dizer que o vosso programa foi morto porque demorou mais do que 2 segundos de CPU na vossa máquina
+* Sugiro que corram o vosso programa contra vários jogadores aleatórios
 
 Para criar um campeonato, é necessário:
 
