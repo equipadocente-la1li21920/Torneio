@@ -29,19 +29,19 @@ Para correr o campeonato, basta ir para a pasta campeonato e escrever:
 
 ## Exemplo de utilização
 ```
-git clone ...
-cd Torneio
-make
-for i in {1..10}; do; cp aleat campeonato/concorrentes/aleat%i; done
-cp path_para_o_bot campeonato/concorrentes
-cd concorrentes
-./torneio.sh
+$ git clone ...
+$ cd Torneio
+$ make
+$ for i in {1..4}; do cp aleat campeonato/concorrentes/aleat0$i; done
+$ cp path_para_o_bot campeonato/concorrentes
+$ cd concorrentes
+$ ./torneio.sh
 ```
 
 O que a script imprime é uma linha por jogo:
 
 ```
-rui@rui-VirtualBox:~/Torneio/campeonato$ ./torneio.sh 
+$ ./torneio.sh 
 a01 a02 END 2
 a01 a03 END 1
 a01 a04 END 2
