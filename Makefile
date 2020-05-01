@@ -9,6 +9,7 @@ aleat: aleat.c common.c
 ff: ff.c common.c
 
 preparar:
+	sudo apt install ffmpeg
 	mkdir -p campeonato
 	mkdir -p campeonato/concorrentes
 	mkdir -p campeonato/logos
