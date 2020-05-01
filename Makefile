@@ -2,7 +2,7 @@ CFLAGS=-std=gnu11 -Wall -Wextra -pedantic-errors -g
 TABULEIROS=$(wildcard tab[0-9]) inicial
 SCRIPTS=$(wildcard *.sh) $(wildcard *.py)
 
-all: valida ended aleat ff final.html preparar
+all: valida ended aleat preparar
 valida: valida.c common.c
 ended: ended.c common.c
 aleat: aleat.c common.c

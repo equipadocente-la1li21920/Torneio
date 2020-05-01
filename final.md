@@ -34,6 +34,14 @@ A avaliação final será feita utilizando os seguintes critérios:
 ## Documentação
 Todas as funções do vosso projeto, assim como estruturas de dados e macros deverão ser documentadas. A percertagem da documentação será utilizada para a avaliação deste critério.
 
+Para gerar a documentação em XML:
+
+- editar o ficheiro de configuração __`Doxyfile`__
+- mudar o nome da variável __`GENERATE_XML`__ para __`YES`__
+- correr o comando __`doxygen`__
+- mudar o nome da pasta __`xml`__ para __`doc`__ e colocá-la no github e no zip
+
+
 ## Modularidade e legibilidade
 Pretende-se que o código esteja bem escrito e legível. Isto implica:
 
@@ -140,6 +148,7 @@ O arquivo e o projeto no Github deverão __obrigatóriamente__ ter as seguintes 
 - ficheiro `README.md` que deverá conter:
 	- o nome do curso, LCC ou MIEI
 	- o nome do turno, PL<nº do turno>, e.g., PL1
+	- o número do grupo
 	- o número de aluno de cada elemento seguido do seu nome completo
 - pasta `projeto` contendo todo o código do projeto
 - pasta `bot` contendo todo o código correspondente ao bot (caso pretenda ser avaliado no torneio)
