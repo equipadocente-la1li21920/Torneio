@@ -11,13 +11,8 @@ Exemplo:
 
 ```
 rui@rui-VirtualBox:~/Torneio$ cp la1PL1G11.zip /tmp
+rui@rui-VirtualBox:~/Torneio$ cp la1PL1G12.zip /tmp
 rui@rui-VirtualBox:~/Torneio$ cp extrai.py /tmp
-rui@rui-VirtualBox:~/Torneio$ cp la1PL1G11.zip /tmp
-rui@rui-VirtualBox:~/Torneio$ cp /tmp/extrai.py .
-rui@rui-VirtualBox:~/Torneio$ vi README.md 
-rui@rui-VirtualBox:~/Torneio$ cp la1PL1G11.zip /tmp
-rui@rui-VirtualBox:~/Torneio$ cp extrai.py /tmp
-rui@rui-VirtualBox:~/Torneio$ la1PL1G12.zip /tmp
 rui@rui-VirtualBox:~/Torneio$ cd /tmp
 rui@rui-VirtualBox:/tmp$ python3 extrai.py la1PL1G11.zip la1PL1G12.zip 
 Curso: la1	Turno: 1	Grupo: 11	Warnings: NO	Ficheiros: ['/tmp/la1PL1G11/aleat.c', '/tmp/la1PL1G11/common.c']
