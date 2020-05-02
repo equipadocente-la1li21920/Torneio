@@ -85,6 +85,7 @@ int valida_jogada(FILE *f, int I, int num_jogs, CASA tab[8][8], int usado[8][8],
 	if(num_jogs == 2 && !testar(strlen(buf) == 10, "Linha nº %d não tem 9 carateres: %s\n", L, buf))					return 0;
 	if(num_jogs == 1 && !testar(strlen(buf) == 7, "Linha nº %d não tem 6 carateres: %s\n", L, buf))						return 0;
 	if(!testar(sscanf(buf, "%d: %s %s", &jog, p1, p2) == num_jogs + 1, "Formato da linha %d está errado", L))				return 0;
+	if(!testar((jog < 10)  ?  buf[0] == '0' : 1, "Formato do número de jogadas devia ser %02d e não %d", jog, jog))				return 0;
 	if(!testar(jog == I + 1, "Linha %d não corresponde à jogada %d mas sim à jogada %d\n", L, I + 1, jog))					return 0;
 	if(!(testar(coordenada_usada(p1, tab, usado, ultima), "O primeiro movimento da linha %d é inválido: %s\n", L, p1)))			return 0;
 	if(num_jogs == 2 && !(testar(coordenada_usada(p2, tab, usado, ultima), "O segundo movimento da linha %d é inválido: %s\n", L, p2)))	return 0;
@@ -135,6 +136,10 @@ int valida(FILE *f, CASA tab[8][8], char ultima[3], char *movs[64], int *num_mov
 
 	if(!(testar(e_branca(ultima, tab), "O último movimento não corresponde a uma casa branca\n")))
 		return 0;
+
+	if(!testar(fgets(buf, BUF_SIZ, f) == NULL, "Há mais linhas do que é esperado\n"))
+		return 0;
+
 	return 1;
 }
 
