@@ -25,6 +25,9 @@ Reparem que há duas submissões, a primeira tem warnings e a segunda não.
 
 Problemas comuns:
 
+* Um dos problemas comuns é o validador achar que o formato não está correto; os erros comuns são:
+  * Imprimir um espaço depois da última coordenada nos movimentos (e.g, "01: e4 \n" em vez de "01: e4\n" ou "01: e4 e3 \n" em vez de "01: e4 e3\n")
+  * Não imprimir o nº da jogada como dois algarismos, e.g., imprimir 1 em vez de 01
 * Há pessoas que estão com problemas a ler o tabuleiro inicial, vejam se é o vosso caso
 * Se ao correr o jogo aparecer um __killed__, isso quer dizer que o vosso programa foi morto porque demorou mais do que 2 segundos de CPU na vossa máquina
 * Sugiro que corram o vosso programa contra vários jogadores aleatórios
