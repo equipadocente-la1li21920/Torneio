@@ -5,10 +5,8 @@ def extrai(filename):
     dir, curso, turno, grupo = m.groups()
     os.makedirs(f'/tmp/{dir}', exist_ok = True)
     os.system(f'cp {filename} /tmp/{dir}; cd /tmp/{dir}; unzip -o -q {filename}')
-    #os.system(f'cd /tmp/{filename}; gcc -std=gnu11 -Wall -Wextra -pedantic-errors -O *.c -lm')
     args = '-std=gnu11 -Wall -Wextra -pedantic-errors -O'.split()
     files = glob.glob(f'/tmp/{dir}/*.c')
-    #res = subprocess.run(['gcc', *args, *files, '-lm'], stdout=subprocess.PIPE, cwd = f'/tmp/{dir}')
     res = subprocess.run(['gcc', *args, *files, '-lm'], stderr=subprocess.STDOUT, stdout=subprocess.PIPE, cwd = f'/tmp/{dir}')
     warnings = "NO"
     if(res.stdout):
