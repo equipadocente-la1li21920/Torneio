@@ -7,6 +7,7 @@ def check_for_warnings(folder):
     warnings = True
     if(res.stdout):
         warnings = False
+    return warnings
 
 def count_XML_files(folder):
     files = glob.glob(f'{folder}/*.xml')
@@ -33,7 +34,7 @@ def extrai(filename):
     bot_dir = f'/tmp/{dir}/bot'
     os.system(f'cp {filename} /tmp/{dir}; cd /tmp/{dir}; unzip -o -q {filename}')
 
-    warnings = all(check_for_warnings(folder) for folder in [code_dir, bot_dir])
+    warnings = 'NO' if any(check_for_warnings(folder) for folder in [code_dir, bot_dir]) else 'YES!'
 
     print(f'Curso: {curso}\tTurno: {turno}\tGrupo: {grupo}\tREADME: {check_for_readme(dir)}\t#Doc: {count_XML_files(doc_dir)}\tWarnings: {warnings}\t#files_projeto: {count_C_files(code_dir)}\t#files_bot: {count_C_files(bot_dir)}')
 
