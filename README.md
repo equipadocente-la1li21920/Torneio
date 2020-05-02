@@ -1,5 +1,31 @@
 # Torneio
 
+## Como verificar se a submissão para o bot está correta?
+
+* Copiar para a `/tmp` o zip da submissão
+* Copiar para a `/tmp` a script `extrai.py`
+* Abrir um terminal na `/tmp`
+* Executar a script passando-lhe o nome do zip
+
+Exemplo:
+
+```
+rui@rui-VirtualBox:~/Torneio$ cp la1PL1G11.zip /tmp
+rui@rui-VirtualBox:~/Torneio$ cp extrai.py /tmp
+rui@rui-VirtualBox:~/Torneio$ cp la1PL1G11.zip /tmp
+rui@rui-VirtualBox:~/Torneio$ cp /tmp/extrai.py .
+rui@rui-VirtualBox:~/Torneio$ vi README.md 
+rui@rui-VirtualBox:~/Torneio$ cp la1PL1G11.zip /tmp
+rui@rui-VirtualBox:~/Torneio$ cp extrai.py /tmp
+rui@rui-VirtualBox:~/Torneio$ la1PL1G12.zip /tmp
+rui@rui-VirtualBox:~/Torneio$ cd /tmp
+rui@rui-VirtualBox:/tmp$ python3 extrai.py la1PL1G11.zip la1PL1G12.zip 
+Curso: la1	Turno: 1	Grupo: 11	Warnings: NO	Ficheiros: ['/tmp/la1PL1G11/aleat.c', '/tmp/la1PL1G11/common.c']
+Curso: la1	Turno: 1	Grupo: 12	Warnings: YES!	Ficheiros: ['/tmp/la1PL1G12/aleat.c', '/tmp/la1PL1G12/common.c']
+```
+
+Reparem que há duas submissões, a primeira tem warnings e a segunda não.
+
 ## Como se usa?
 
 Problemas comuns:
