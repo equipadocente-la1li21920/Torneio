@@ -3,7 +3,7 @@
 ## Como verificar se a submissão para o bot está correta?
 
 * Copiar para a `/tmp` o zip da submissão
-* Copiar para a `/tmp` a script `extrai.py`
+* Copiar para a `/tmp` a script `valida_bot.py`
 * Abrir um terminal na `/tmp`
 * Executar a script passando-lhe o nome do zip
 
@@ -12,14 +12,24 @@ Exemplo:
 ```
 rui@rui-VirtualBox:~/Torneio$ cp la1PL1G11.zip /tmp
 rui@rui-VirtualBox:~/Torneio$ cp la1PL1G12.zip /tmp
-rui@rui-VirtualBox:~/Torneio$ cp extrai.py /tmp
+rui@rui-VirtualBox:~/Torneio$ cp valida_bot.py /tmp
 rui@rui-VirtualBox:~/Torneio$ cd /tmp
-rui@rui-VirtualBox:/tmp$ python3 extrai.py la1PL1G11.zip la1PL1G12.zip 
+rui@rui-VirtualBox:/tmp$ python3 valida_bot.py la1PL1G11.zip la1PL1G12.zip 
 Curso: la1	Turno: 1	Grupo: 11	Warnings: NO	Ficheiros: ['/tmp/la1PL1G11/aleat.c', '/tmp/la1PL1G11/common.c']
 Curso: la1	Turno: 1	Grupo: 12	Warnings: YES!	Ficheiros: ['/tmp/la1PL1G12/aleat.c', '/tmp/la1PL1G12/common.c']
 ```
 
 Reparem que há duas submissões, a primeira tem warnings e a segunda não.
+
+## Script para validar o envio do projeto
+Da mesma maneira, existe uma script `valida_projeto.py` que valida o projeto:
+
+```
+rui@rui-VirtualBox:/tmp$ python3 ~/Torneio/valida_projeto.py la1PL1G13.zip 
+Curso: la1	Turno: 1	Grupo: 13	README: True	#Doc: 0	Warnings: False	#files_projeto: 4	#files_bot: 0
+```
+
+Ela verifica se há warnings, quantos ficheiros .h e .c contém o projeto, quandos ficheiros contém o bot, quantos estão na documentação e se há o readme.
 
 ## Como se usa?
 
