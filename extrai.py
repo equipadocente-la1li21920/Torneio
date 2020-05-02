@@ -2,6 +2,9 @@ import sys, os, re, subprocess, glob
 
 def extrai(filename):
     m = re.match(r'((li2|la1)PL([1-8])G([01][0-9])).zip', filename)
+    if not m:
+        print(f'O nome do ficheiro {filename} não está correto')
+        return
     dir, curso, turno, grupo = m.groups()
     os.makedirs(f'/tmp/{dir}', exist_ok = True)
     os.system(f'cp {filename} /tmp/{dir}; cd /tmp/{dir}; unzip -o -q {filename}')
