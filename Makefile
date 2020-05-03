@@ -9,7 +9,7 @@ aleat: aleat.c common.c
 ff: ff.c common.c
 
 preparar:
-	pip3 install coverxygen
+	sudo pip3 install coverxygen
 	sudo apt install lcov
 	mkdir -p campeonato
 	mkdir -p campeonato/concorrentes
