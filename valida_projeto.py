@@ -16,6 +16,15 @@ def count_XML_files(folder):
     tam = len(files)
     return tam if tam > 0 else "NO!"
 
+def check_documentation(proj, doc):
+    if os.path.isdir(proj):
+        os.system(f'cd {proj}; doxygen -g > /dev/null; sed -e "s/\(GENERATE_XML.*=.*\)NO/\\1YES/" Doxyfile > sai; mv sai Doxyfile; doxygen > /dev/null 2>&1')
+        os.system(f'cd {proj}; python3 -m coverxygen --xml-dir xml --src-dir . --output sai')
+        #os.system(f'cd {proj}; lcov --summary sai 2>&1 | grep lines | cut -f2 -d: | cut -f1 -d%')
+        res = subprocess.run('lcov --summary sai'.split(), stderr=subprocess.STDOUT, stdout=subprocess.PIPE, cwd = proj)
+        m = re.search(r'lines\.*:\s+(.*?)%', res.stdout.decode('utf8'))
+        return m.group(1)
+
 def count_C_files(folder):
     files = glob.glob(f'{folder}/*.[hc]')
     return len(files)
@@ -41,8 +50,10 @@ def extrai(filename):
     warnings = 'NO' if any(check_for_warnings(folder) for folder in [code_dir, bot_dir]) else 'YES!'
     num_files_projeto = count_C_files(code_dir) if os.path.isdir(code_dir) else "NO!"
     num_files_bot = count_C_files(bot_dir) if os.path.isdir(bot_dir) else "NO!"
+    #documentation = count_XML_files(doc_dir)
+    documentation = check_documentation(code_dir, doc_dir)
 
-    print(f'Curso: {curso}\tTurno: {turno}\tGrupo: {grupo}\tREADME: {check_for_readme(base_dir)}\t#Doc: {count_XML_files(doc_dir)}\tWarnings: {warnings}\t#files_projeto: {num_files_projeto}\t#files_bot: {num_files_bot}')
+    print(f'Curso: {curso}\tTurno: {turno}\tGrupo: {grupo}\tREADME: {check_for_readme(base_dir)}\tDoc: {documentation}%\tWarnings: {warnings}\t#files_projeto: {num_files_projeto}\t#files_bot: {num_files_bot}')
 
 for filename in sys.argv[1:]:
     extrai(filename)
