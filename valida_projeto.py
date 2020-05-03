@@ -18,7 +18,8 @@ def count_XML_files(folder):
 
 def check_documentation(proj, doc):
     if os.path.isdir(proj):
-        os.system(f'cd {proj}; doxygen -g > /dev/null; sed -e "s/\(GENERATE_XML.*=.*\)NO/\\1YES/" Doxyfile > sai; mv sai Doxyfile; doxygen > /dev/null 2>&1')
+        os.system(f'cd {proj}; doxygen -g > /dev/null; sed -e "s/\(GENERATE_XML.*=.*\)NO/\\1YES/; s/\(RECURSIVE.*=.*\)NO/\\1YES/" Doxyfile > sai; mv sai Doxyfile; doxygen > /dev/null 2>&1')
+        
         os.system(f'cd {proj}; python3 -m coverxygen --xml-dir xml --src-dir . --output sai')
         #os.system(f'cd {proj}; lcov --summary sai 2>&1 | grep lines | cut -f2 -d: | cut -f1 -d%')
         res = subprocess.run('lcov --summary sai'.split(), stderr=subprocess.STDOUT, stdout=subprocess.PIPE, cwd = proj)
