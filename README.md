@@ -1,5 +1,14 @@
 # Torneio
 
+## Problemas comuns de cobertura da documentação
+Para conseguir 100% de documentação com a script é necessário documentar:
+
+* Todas as funções
+* Todas as macros
+* Todas as estruturas
+* Todos os campos das estruturas
+* Colocar um comentário no início de todos os ficheiros (e incluir um @file algures no início do ficheiro)
+
 ## Como verificar se a submissão para o bot está correta?
 
 * Copiar para a `/tmp` o zip da submissão
