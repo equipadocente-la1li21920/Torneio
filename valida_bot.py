@@ -6,6 +6,7 @@ def extrai(filename):
         print(f'O nome do ficheiro {filename} não está correto')
         return
     dir, curso, turno, grupo = m.groups()
+    os.system(f'rm -rf /tmp/{dir}')
     os.makedirs(f'/tmp/{dir}', exist_ok = True)
     os.system(f'cp {filename} /tmp/{dir}; cd /tmp/{dir}; unzip -o -q {filename}')
     args = '-std=gnu11 -Wall -Wextra -pedantic-errors -O'.split()

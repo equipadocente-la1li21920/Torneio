@@ -44,6 +44,7 @@ def extrai(filename):
     code_dir = f'/tmp/{dir}/projeto'
     doc_dir = f'/tmp/{dir}/doc'
     bot_dir = f'/tmp/{dir}/bot'
+    os.system(f'rm -rf {base_dir}')
     os.makedirs(base_dir, exist_ok = True)
     os.system(f'cp {filename} {base_dir}; cd {base_dir}; unzip -o -q {filename}')
 
