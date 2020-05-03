@@ -25,11 +25,11 @@ Reparem que há duas submissões, a primeira tem warnings e a segunda não.
 Da mesma maneira, existe uma script `valida_projeto.py` que valida o projeto:
 
 ```
-rui@rui-VirtualBox:/tmp$ python3 ~/Torneio/valida_projeto.py la1PL1G13.zip 
-Curso: la1	Turno: 1	Grupo: 13	README: True	#Doc: 0	Warnings: False	#files_projeto: 4	#files_bot: 0
+$ python3 ../valida_projeto.py la1PL1G13.zip 
+Curso: la1	Turno: 1	Grupo: 13	README: True	Doc: 13.5%	Warnings: NO	#files_projeto: 4	#files_bot: NO!
 ```
 
-Ela verifica se há warnings, quantos ficheiros .h e .c contém o projeto, quandos ficheiros contém o bot, quantos estão na documentação e se há o readme.
+Ela verifica se há warnings, quantos ficheiros .h e .c contém o projeto, quandos ficheiros contém o bot, a __percentagem__ da documentação e se há o readme.
 
 ## Como se usa?
 
