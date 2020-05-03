@@ -49,6 +49,12 @@ def check_for_readme(folder):
     possibilities = 'README Readme readme'.split()
     return any(os.path.isfile(f'{folder}/{poss}.md') for poss in possibilities)
 
+def verifica_zip(base_dir):
+    files = glob.glob(f'{base_dir}/*')
+    if len(files) == 1 and os.path.isdir(files[0]):
+        print('O zip só contém a pasta {files[0]}!\nOs ficheiros deviam estar na raiz!')
+        return False
+    return True
 
 def extrai(filename):
     m = re.match(r'((li2|la1)PL([1-8])G([01][0-9])).zip', filename)
@@ -57,6 +63,9 @@ def extrai(filename):
         return
     dir, curso, turno, grupo = m.groups()
     base_dir = f'/tmp/{dir}'
+    if not verifica_zip(base_dir):
+        return
+
     code_dir = f'/tmp/{dir}/projeto'
     doc_dir = f'/tmp/{dir}/doc'
     bot_dir = f'/tmp/{dir}/bot'
