@@ -16,6 +16,18 @@ def count_XML_files(folder):
     tam = len(files)
     return tam if tam > 0 else "NO!"
 
+
+def list_undocumented(folder):
+    print('Linhas com warnings:')
+    with open(f'{folder}/sai') as f:
+        for line in f:
+            m = re.match(r'SF:(.*)', line)
+            if m:
+                file = m.group(1)
+            m = re.match(r'DA:([0-9]*),0', line)
+            if m:
+                print(file, m.group(1), sep=': ')
+
 def check_documentation(proj, doc):
     if os.path.isdir(proj):
         os.system(f'cd {proj}; doxygen -g > /dev/null; sed -e "s/\(GENERATE_XML.*=.*\)NO/\\1YES/; s/\(RECURSIVE.*=.*\)NO/\\1YES/" Doxyfile > sai; mv sai Doxyfile; doxygen > /dev/null 2>&1')
@@ -24,7 +36,10 @@ def check_documentation(proj, doc):
         #os.system(f'cd {proj}; lcov --summary sai 2>&1 | grep lines | cut -f2 -d: | cut -f1 -d%')
         res = subprocess.run('lcov --summary sai'.split(), stderr=subprocess.STDOUT, stdout=subprocess.PIPE, cwd = proj)
         m = re.search(r'lines\.*:\s+(.*?)%', res.stdout.decode('utf8'))
-        return m.group(1)
+        perc = float(m.group(1))
+        if perc < 100:
+            list_undocumented(proj)
+        return perc
 
 def count_C_files(folder):
     files = glob.glob(f'{folder}/*.[hc]')
