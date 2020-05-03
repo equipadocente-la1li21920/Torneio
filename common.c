@@ -76,7 +76,7 @@ int e_branca(char coord[3], CASA tab[8][8]) {
 }
 
 int valida_jogada(FILE *f, int I, int num_jogs, CASA tab[8][8], int usado[8][8], char *ultima, char *movs[64], int *num_movs) {
-	int L = I + 9;
+	int L = I + 10;
 	char buf[BUF_SIZ];
 	int jog;
 	char p1[3];
