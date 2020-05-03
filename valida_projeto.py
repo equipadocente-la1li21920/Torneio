@@ -18,7 +18,7 @@ def count_XML_files(folder):
 
 
 def list_undocumented(folder):
-    print('Linhas com warnings:')
+    print('Linhas sem documentação:')
     with open(f'{folder}/sai') as f:
         for line in f:
             m = re.match(r'SF:(.*)', line)
